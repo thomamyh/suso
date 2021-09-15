@@ -17,19 +17,31 @@ def read_board():
 
 def solve(board):
     # Solves the sudoku puzzle
-    pass
+
+    # Finds the next empty square on the board
+    row, col = get_empty(board)
+
+    if row is None:
+        # Solved!
+        pass
 
 def possible():
     # Checks if the value can be entered in the square
     pass
 
-def get_empty():
+def get_empty(board):
     # Returns the next empty square on the board
-    pass
+    # Returns None if there is no more empty squares
+    for y in range(len(board)):
+        for x in range(len(board)):
+            if board[y][x] == 0:
+                return y, x
+    
+    return None, None
 
 def main():
     board = read_board()
-    print(board)
+    solve(board)
 
 if __name__ == "__main__":
     main()
